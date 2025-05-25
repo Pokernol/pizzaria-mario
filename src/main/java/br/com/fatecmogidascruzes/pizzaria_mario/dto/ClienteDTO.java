@@ -12,16 +12,19 @@ public class ClienteDTO {
     private String email;
     private String telefone;
 
-    public String getNome(String nome) {
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
         return nome;
     }
 
-    public String getEmail(String email) {
+    public String getEmail() {
         return email;
     }
 
-    public String getTelefone(String telefone) {
+    public String getTelefone() {
         return telefone;
     }
-
 }
