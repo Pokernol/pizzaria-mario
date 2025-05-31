@@ -11,12 +11,4 @@ import java.util.List;
 public class NovoPedidoDTO {
     private Long clienteId;
     private List<Long> pizzasIds;
-
-    public Long getClienteId() {
-        return clienteId;
-    }
-
-    public List<Long> getPizzasIds() {
-        return pizzasIds;
-    }
 }

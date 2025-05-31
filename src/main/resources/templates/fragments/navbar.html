@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Apenas para evitar erro em edição isolada -->
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4" th:fragment="navbar">
+    <a class="navbar-brand" href="/home">
+        <img src="/images/logo.png" alt="Logo Mario's" class="logo me-2" width="50px">
+        Pizzaria Mario's
+    </a>
+    <div class="ms-auto">
+        <a href="/pedido/cardapio" class="btn btn-outline-light me-2">Cardapio de Pizzas</a>
+        <a href="/pedido/lista" class="btn btn-outline-light me-2">Lista de Pedidos</a>
+        <a href="/pedido/novo" class="btn btn-outline-light me-2">Novo Pedido</a>
+        <a href="/cliente/lista" class="btn btn-outline-light me-2">Lista de CLientes</a>
+        <a href="/cliente/novo" class="btn btn-outline-light me-2">Novo CLiente</a>
+        <a href="/login" class="btn btn-outline-warning">Login</a>
+    </div>
+</nav>
+</body>
+</html>

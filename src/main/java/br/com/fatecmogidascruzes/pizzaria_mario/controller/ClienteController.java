@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/clientes")
+@RequestMapping("/cliente")
 public class ClienteController {
 
     private final ClienteFacade clienteFacade;

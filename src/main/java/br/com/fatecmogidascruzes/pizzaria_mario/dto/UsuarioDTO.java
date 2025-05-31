@@ -7,11 +7,10 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PizzaDTO {
-    private Long id;
+public class UsuarioDTO {
+
+    private String username;
+    private String email;
     private String nome;
-    private String descricao;
-    private Double preco;
-
+    private String password;
 }
-

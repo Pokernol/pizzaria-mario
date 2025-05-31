@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/pedidos")
+@RequestMapping("/pedido")
 public class PedidoController {
 
     private final PedidoFacade pedidoFacade;

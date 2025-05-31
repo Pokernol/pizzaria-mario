@@ -15,9 +15,9 @@ public class PedidoFacade {
         this.pedidoService = pedidoService;
     }
 
-    public Pedido salvarPedido(Pedido pedido) {
+    public void salvarPedido(Pedido pedido) {
         // Regras e validações do pedido aqui
-        return pedidoService.salvar(pedido);
+        pedidoService.salvar(pedido);
     }
 
     public List<Pedido> listarPedidos() {
