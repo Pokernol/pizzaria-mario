@@ -29,7 +29,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override()
-    public Void fazerLogin(SignInDTO input) {
+    public void fazerLogin(SignInDTO input) {
         Optional<Usuario> usuario = this.usuariosService.buscarPorUsuario(input.getUsername());
     
         if(!usuario.isPresent() || !this.validatePassword(usuario.get(), input.getPassword())) {
@@ -37,7 +37,5 @@ public class LoginServiceImpl implements LoginService {
         }
 
         this.sessionManager.criarSessao(usuario.get());
-
-        return null;
-    } 
+    }
 }

@@ -44,16 +44,11 @@ public class LoginController {
     ) {
         try {
             this.loginService.fazerLogin(input);
-            return "redirect:/home";
+            return "redirect:/";
         } catch (Throwable e) {
             System.out.println(e.getMessage());
             String mensagemErro = e instanceof BusinessException ? e.getMessage() : "Houve um falha interna. Tente novamente mais tarde";
             return "redirect:/login?erro=true&message=" + mensagemErro;
         }
-    }
-
-    @GetMapping("/home")
-    public String home() {
-        return "home";
     }
 }

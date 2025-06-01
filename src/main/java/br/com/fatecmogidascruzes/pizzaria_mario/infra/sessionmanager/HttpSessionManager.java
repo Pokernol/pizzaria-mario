@@ -15,18 +15,16 @@ public class HttpSessionManager implements SessionManager {
     private HttpServletRequest request;
 
     @Override
-    public Void criarSessao(Usuario usuario) {
+    public void criarSessao(Usuario usuario) {
         HttpSession session = request.getSession(true);
         session.setAttribute("usuarioLogado", usuario);
-        return null;
     }
 
     @Override
-    public Void destruirSessao(Usuario usuario) {
+    public void destruirSessao(Usuario usuario) {
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();
         }
-        return null;
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class IndexController {
 
-    @GetMapping("/")
+    @GetMapping
     public String mostrarFormulario(Model model) {
         return "redirect:/home";
     }
