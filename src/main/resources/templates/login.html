@@ -16,6 +16,11 @@
                 <div class="card-header text-center bg-dark text-light">
                     <h4>Login</h4>
                 </div>
+                <div th:if="${erro}">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                       <span th:text="${message}">Mensagem de erro</span>
+                    </div>
+                </div>
                 <div class="card-body">
                     <form th:action="@{/login}" method="post">
                         <div class="mb-3">
