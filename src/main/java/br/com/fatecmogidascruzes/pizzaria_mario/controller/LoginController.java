@@ -1,43 +1,54 @@
 package br.com.fatecmogidascruzes.pizzaria_mario.controller;
 
-import br.com.fatecmogidascruzes.pizzaria_mario.model.Usuario;
-import br.com.fatecmogidascruzes.pizzaria_mario.repository.UsuarioRepository;
-import jakarta.servlet.http.HttpSession;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Optional;
+import br.com.fatecmogidascruzes.pizzaria_mario.dto.SignInDTO;
+import br.com.fatecmogidascruzes.pizzaria_mario.exception.BusinessException;
+import br.com.fatecmogidascruzes.pizzaria_mario.service.LoginService;
+import lombok.AllArgsConstructor;
 
 @Controller
+@AllArgsConstructor()
 public class LoginController {
 
-    private final UsuarioRepository usuarioRepository;
-
-    public LoginController(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
-    }
+    @Autowired()
+    private LoginService loginService;
 
     @GetMapping("/login")
-    public String login() {
+    public String login(
+        @RequestParam(required = false) String erro,
+        @RequestParam(required = false) String message,
+        Model model
+    ) {
+        if (erro != null) {
+            String decodedMessage = URLDecoder.decode(message, StandardCharsets.ISO_8859_1);
+            model.addAttribute("erro", true);
+            model.addAttribute("message", decodedMessage);
+        }
+
         return "login";
     }
 
     @PostMapping("/login")
     public String loginPost(
-            @RequestParam String username,
-            @RequestParam String password,
-            HttpSession session
+            @ModelAttribute() SignInDTO input
     ) {
-        Optional<Usuario> usuarioOpt = usuarioRepository.findByUsernameAndPassword(username, password);
-
-        if (usuarioOpt.isPresent()) {
-            session.setAttribute("usuario", usuarioOpt.get());
+        try {
+            this.loginService.fazerLogin(input);
             return "redirect:/home";
-        } else {
-            // Você pode redirecionar com um erro
-            return "redirect:/login?erro=true";
+        } catch (Throwable e) {
+            System.out.println(e.getMessage());
+            String mensagemErro = e instanceof BusinessException ? e.getMessage() : "Houve um falha interna. Tente novamente mais tarde";
+            return "redirect:/login?erro=true&message=" + mensagemErro;
         }
     }
 
