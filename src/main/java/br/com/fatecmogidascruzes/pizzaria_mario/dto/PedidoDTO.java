@@ -18,28 +18,4 @@ public class PedidoDTO {
     private Double valorTotal;
     private LocalDateTime dataHora;
 
-    public Long getId() {
-        return id;
-    }
-
-    public ClienteDTO getCliente() {
-        return cliente;
-    }
-
-    public List<PizzaDTO> getPizzas() {
-        return pizzas;
-    }
-
-    public StatusPedido getStatus() {
-        return status;
-    }
-
-    public Double getValorTotal() {
-        return valorTotal;
-    }
-
-    public LocalDateTime getDataHora() {
-        return dataHora;
-    }
-
 }

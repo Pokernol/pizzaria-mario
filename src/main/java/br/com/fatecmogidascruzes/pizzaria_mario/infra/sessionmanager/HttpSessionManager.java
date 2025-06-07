@@ -27,4 +27,10 @@ public class HttpSessionManager implements SessionManager {
             session.invalidate();
         }
     }
+
+    @Override
+    public Boolean isUsuarioLogado() {
+        HttpSession session = request.getSession(false);
+        return session != null && session.getAttribute("usuarioLogado") != null;
+    }
 }

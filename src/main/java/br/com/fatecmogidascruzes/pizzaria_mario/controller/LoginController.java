@@ -18,7 +18,7 @@ import lombok.AllArgsConstructor;
 
 @Controller
 @AllArgsConstructor()
-public class LoginController {
+public class LoginController extends BaseController {
 
     @Autowired()
     private LoginService loginService;
@@ -50,5 +50,10 @@ public class LoginController {
             String mensagemErro = e instanceof BusinessException ? e.getMessage() : "Houve um falha interna. Tente novamente mais tarde";
             return "redirect:/login?erro=true&message=" + mensagemErro;
         }
+    }
+
+    @GetMapping("/home")
+    public String home(Model model) {
+        return "home";
     }
 }

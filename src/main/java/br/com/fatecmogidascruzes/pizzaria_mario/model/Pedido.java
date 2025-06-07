@@ -27,8 +27,4 @@ public class Pedido {
     private Double valorTotal;
 
     private LocalDateTime dataHora;
-
-    public void setStatus(StatusPedido status) {
-        this.status = status;
-    }
 }

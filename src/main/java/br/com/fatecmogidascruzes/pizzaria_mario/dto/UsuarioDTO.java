@@ -2,7 +2,6 @@ package br.com.fatecmogidascruzes.pizzaria_mario.dto;
 
 import lombok.*;
 
-@Getter
 @Data
 @Builder
 @AllArgsConstructor

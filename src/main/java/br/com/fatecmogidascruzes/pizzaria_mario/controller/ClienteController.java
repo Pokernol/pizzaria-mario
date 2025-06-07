@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/cliente")
-public class ClienteController {
+public class ClienteController extends  BaseController {
 
     private final ClienteFacade clienteFacade;
     private final ClienteMapper clienteMapper;
