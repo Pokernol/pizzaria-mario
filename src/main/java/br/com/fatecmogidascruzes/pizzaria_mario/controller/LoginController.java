@@ -25,8 +25,8 @@ public class LoginController extends BaseController {
 
     @GetMapping("/login")
     public String login(
-        @RequestParam(required = false) String erro,
-        @RequestParam(required = false) String message,
+        @RequestParam(value = "erro", required = false) String erro,
+        @RequestParam(value = "message", required = false) String message,
         Model model
     ) {
         if (erro != null) {
@@ -34,7 +34,9 @@ public class LoginController extends BaseController {
             model.addAttribute("erro", true);
             model.addAttribute("message", decodedMessage);
         }
-
+        if (message != null) {
+            model.addAttribute("message", message);
+        }
         return "login";
     }
 
