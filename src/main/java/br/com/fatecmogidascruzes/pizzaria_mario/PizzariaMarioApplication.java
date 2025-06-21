@@ -18,13 +18,12 @@ public class PizzariaMarioApplication {
 	@Bean
 	public CommandLineRunner initData(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
 		return args -> {
-			// Cria um usuário de teste se não existir
 			if (usuarioRepository.findByUsername("admin@pizzaria.com").isEmpty()) {
 				Usuario admin = new Usuario();
 				admin.setUsername("admin@pizzaria.com");
 				admin.setEmail("admin@pizzaria.com");
 				admin.setNome("Administrador");
-				admin.setPassword(passwordEncoder.encode("senha123")); // Senha criptografada
+				admin.setPassword(passwordEncoder.encode("senha123"));
 				usuarioRepository.save(admin);
 				System.out.println("Usuário admin@pizzaria.com criado com senha 'senha123'");
 			}

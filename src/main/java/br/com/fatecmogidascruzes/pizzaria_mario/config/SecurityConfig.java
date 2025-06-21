@@ -1,15 +1,10 @@
-// src/main/java/br/com/fatecmogidascruzes/pizzaria_mario/config/SecurityConfig.java
 package br.com.fatecmogidascruzes.pizzaria_mario.config;
 
-import br.com.fatecmogidascruzes.pizzaria_mario.service.UsuarioService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider; // Novo import
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider; // Novo import
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService; // Novo import
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
