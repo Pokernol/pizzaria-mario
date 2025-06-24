@@ -1,9 +1,9 @@
 package br.com.fatecmogidascruzes.pizzaria_mario.service;
 
+import br.com.fatecmogidascruzes.pizzaria_mario.model.Usuario;
+
 import java.util.List;
 import java.util.Optional;
-
-import br.com.fatecmogidascruzes.pizzaria_mario.model.Usuario;
 
 public interface UsuarioService {
     List<Usuario> listaTodos();

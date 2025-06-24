@@ -1,10 +1,5 @@
 package br.com.fatecmogidascruzes.pizzaria_mario.service.impl;
 
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import br.com.fatecmogidascruzes.pizzaria_mario.dto.SignInDTO;
 import br.com.fatecmogidascruzes.pizzaria_mario.exception.BusinessException;
 import br.com.fatecmogidascruzes.pizzaria_mario.model.Usuario;
@@ -12,6 +7,10 @@ import br.com.fatecmogidascruzes.pizzaria_mario.protocols.Criptografador;
 import br.com.fatecmogidascruzes.pizzaria_mario.protocols.SessionManager;
 import br.com.fatecmogidascruzes.pizzaria_mario.service.LoginService;
 import br.com.fatecmogidascruzes.pizzaria_mario.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service()
 public class LoginServiceImpl implements LoginService {

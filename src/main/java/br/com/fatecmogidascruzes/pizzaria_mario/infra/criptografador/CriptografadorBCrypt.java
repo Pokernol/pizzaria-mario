@@ -1,10 +1,9 @@
 package br.com.fatecmogidascruzes.pizzaria_mario.infra.criptografador;
 
+import br.com.fatecmogidascruzes.pizzaria_mario.protocols.Criptografador;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-
-import br.com.fatecmogidascruzes.pizzaria_mario.protocols.Criptografador;
 
 @Component()
 public class CriptografadorBCrypt implements Criptografador {

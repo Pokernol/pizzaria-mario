@@ -1,8 +1,9 @@
 package br.com.fatecmogidascruzes.pizzaria_mario.controller;
 
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
-
+import br.com.fatecmogidascruzes.pizzaria_mario.dto.SignInDTO;
+import br.com.fatecmogidascruzes.pizzaria_mario.exception.BusinessException;
+import br.com.fatecmogidascruzes.pizzaria_mario.service.LoginService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import br.com.fatecmogidascruzes.pizzaria_mario.dto.SignInDTO;
-import br.com.fatecmogidascruzes.pizzaria_mario.exception.BusinessException;
-import br.com.fatecmogidascruzes.pizzaria_mario.service.LoginService;
-import lombok.AllArgsConstructor;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 
 @Controller
 @AllArgsConstructor()

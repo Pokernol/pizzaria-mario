@@ -10,6 +10,6 @@ public interface UsuarioMapper {
 
     UsuarioDTO toDTO(Usuario usuario);
 
-    @Mapping(target = "id", ignore = true)
+    
     Usuario toEntity(UsuarioDTO dto);
 }
