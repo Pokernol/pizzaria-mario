@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class IndexController {
+public class IndexController extends BaseController {
 
-    @GetMapping
+    @GetMapping("/")
     public String mostrarFormulario(Model model) {
         return "redirect:/home";
     }

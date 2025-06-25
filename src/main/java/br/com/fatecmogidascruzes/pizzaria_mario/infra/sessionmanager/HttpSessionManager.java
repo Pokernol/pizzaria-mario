@@ -1,12 +1,11 @@
 package br.com.fatecmogidascruzes.pizzaria_mario.infra.sessionmanager;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import br.com.fatecmogidascruzes.pizzaria_mario.model.Usuario;
 import br.com.fatecmogidascruzes.pizzaria_mario.protocols.SessionManager;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Component()
 public class HttpSessionManager implements SessionManager {
@@ -26,5 +25,11 @@ public class HttpSessionManager implements SessionManager {
         if (session != null) {
             session.invalidate();
         }
+    }
+
+    @Override
+    public Boolean isUsuarioLogado() {
+        HttpSession session = request.getSession(false);
+        return session != null && session.getAttribute("usuarioLogado") != null;
     }
 }

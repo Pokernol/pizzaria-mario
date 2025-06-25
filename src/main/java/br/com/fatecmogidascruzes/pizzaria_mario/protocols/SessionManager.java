@@ -7,4 +7,6 @@ public interface SessionManager {
     public void criarSessao(Usuario usuario);
 
     public void destruirSessao(Usuario usuario);
+
+    public Boolean isUsuarioLogado();
 }

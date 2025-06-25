@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PedidoService {
     List<Pedido> listarTodos();
-    Pedido buscarPorId(Long id);
+    Pedido buscarPorId(String id);
     Pedido salvar(Pedido pedido);
-    void deletar(Long id);
+    void deletar(String id);
 }

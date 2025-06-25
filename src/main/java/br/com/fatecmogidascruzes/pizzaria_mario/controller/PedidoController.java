@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/pedido")
-public class PedidoController {
+public class PedidoController extends BaseController {
 
     private final PedidoFacade pedidoFacade;
     private final PedidoMapper pedidoMapper;
