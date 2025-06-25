@@ -1,6 +1,8 @@
 package br.com.fatecmogidascruzes.pizzaria_mario.model;
 
-import jakarta.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,21 +11,20 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-@Entity
+@Document(collection = "pedidos")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pedido {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @ManyToOne
+    private String id;
+    @DBRef
     private Cliente cliente;
 
-    @ManyToMany
-    private List<Pizza> pizzas;
+    @DBRef
+    private List<Produto> produtos;
 
-    @Enumerated(EnumType.STRING)
+    
     private StatusPedido status;
 
     private Double valorTotal;

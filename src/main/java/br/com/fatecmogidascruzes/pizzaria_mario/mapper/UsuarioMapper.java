@@ -3,7 +3,6 @@ package br.com.fatecmogidascruzes.pizzaria_mario.mapper;
 import br.com.fatecmogidascruzes.pizzaria_mario.dto.UsuarioDTO;
 import br.com.fatecmogidascruzes.pizzaria_mario.model.Usuario;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface UsuarioMapper {

@@ -16,7 +16,6 @@ public class ClienteFacade {
     }
 
     public Cliente salvarCliente(Cliente cliente) {
-        // aqui pode ter validações, regras de negócio, etc.
         return clienteService.salvar(cliente);
     }
 
@@ -24,11 +23,11 @@ public class ClienteFacade {
         return clienteService.listarTodos();
     }
 
-    public Cliente buscarPorId(Long id) {
+    public Cliente buscarClientePorId(String id) {
         return clienteService.buscarPorId(id);
     }
 
-    public void deletarCliente(Long id) {
+    public void deletarCliente(String id) {
         clienteService.deletar(id);
     }
 }

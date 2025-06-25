@@ -1,26 +1,24 @@
 package br.com.fatecmogidascruzes.pizzaria_mario.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
+@Document(collection = "usuarios")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private String id;
 
 	private String username;
     private String email;
     private String nome;
     private String password;
+    private String[] roles;
 
 }

@@ -1,7 +1,7 @@
 package br.com.fatecmogidascruzes.pizzaria_mario.exception;
 
-public class PedidoNotFoundException extends BusinessException {
-    public PedidoNotFoundException(Long id) {
-        super("Pedido não encontrado com id: " + id);
+public class PedidoNotFoundException extends RuntimeException {
+    public PedidoNotFoundException(String id) {
+        super("Pedido não encontrado com o ID: " + id);
     }
 }

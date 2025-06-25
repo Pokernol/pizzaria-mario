@@ -16,13 +16,11 @@
                 <div class="card-header text-center bg-dark text-light">
                     <h4>Login</h4>
                 </div>
-                <div th:if="${erro}">
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                       <span th:text="${message}">Mensagem de erro</span>
-                    </div>
-                </div>
+                <!-- Mensagens de erro/sucesso -->
+                <div id="alertContainer" class="mt-3 mx-3"></div>
+
                 <div class="card-body">
-                    <form th:action="@{/login}" method="post">
+                    <form id="loginForm">
                         <div class="mb-3">
                             <label for="username" class="form-label">Email:</label>
                             <input type="email" class="form-control" id="username" name="username" required>
@@ -45,5 +43,55 @@
 </div>
 
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Previne o envio padrão do formulário
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const alertContainer = document.getElementById('alertContainer');
+
+        try {
+            const response = await fetch('/authenticate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Autenticação bem-sucedida
+                localStorage.setItem('jwtToken', data.jwt); // Armazena o token
+                alertContainer.innerHTML = `
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                       Login bem-sucedido! Redirecionando...
+                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+                window.location.href = '/'; // Redireciona para a página inicial
+            } else {
+                // Erro de autenticação
+                const errorMessage = data.message || 'Usuário ou senha inválidos.';
+                alertContainer.innerHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                       ${errorMessage}
+                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+            }
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+            alertContainer.innerHTML = `
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                   Ocorreu um erro ao tentar fazer login. Tente novamente mais tarde.
+                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+        }
+    });
+</script>
 </body>
 </html>

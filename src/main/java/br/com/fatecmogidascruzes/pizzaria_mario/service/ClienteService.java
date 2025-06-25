@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ClienteService {
     List<Cliente> listarTodos();
-    Cliente buscarPorId(Long id);
+    Cliente buscarPorId(String id);
     Cliente salvar(Cliente cliente);
-    void deletar(Long id);
+    void deletar(String id);
 }

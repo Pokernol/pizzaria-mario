@@ -16,7 +16,6 @@ public class PizzaFacade {
     }
 
     public Pizza salvarPizza(Pizza pizza) {
-        // regras específicas aqui
         return pizzaService.salvar(pizza);
     }
 
@@ -24,11 +23,11 @@ public class PizzaFacade {
         return pizzaService.listarTodos();
     }
 
-    public Pizza buscarPorId(Long id) {
+    public Pizza buscarPizzaPorId(String id) {
         return pizzaService.buscarPorId(id);
     }
 
-    public void deletarPizza(Long id) {
+    public void deletarPizza(String id) {
         pizzaService.deletar(id);
     }
 }

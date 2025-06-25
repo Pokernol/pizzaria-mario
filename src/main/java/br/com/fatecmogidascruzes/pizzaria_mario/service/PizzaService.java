@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PizzaService {
     List<Pizza> listarTodos();
-    Pizza buscarPorId(Long id);
+    Pizza buscarPorId(String id);
     Pizza salvar(Pizza pizza);
-    void deletar(Long id);
+    void deletar(String id);
 }

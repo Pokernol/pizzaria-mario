@@ -13,14 +13,17 @@ public class UsuarioFacade {
 
     public UsuarioFacade(UsuarioService usuarioService) { this.usuarioService = usuarioService; }
 
-    public void salvarUsers(Usuario usuario){
-        // Regras e validações do usuarios aqui
-        usuarioService.salvar(usuario);
+    public Usuario salvarUsers(Usuario usuario){
+        return usuarioService.salvar(usuario);
     }
 
     public List<Usuario> listarUsers() { return usuarioService.listaTodos(); }
 
-    public Usuario buscarPorId(Long id) { return usuarioService.buscaPorId(id); }
+    public Usuario buscarUsuarioPorId(String id) {
+        return usuarioService.buscaPorId(id);
+    }
 
-    public void deletarPedito(Long id) { usuarioService.deletar(id); }
+    public void deletarUsuario(String id) {
+        usuarioService.deletar(id);
+    }
 }
