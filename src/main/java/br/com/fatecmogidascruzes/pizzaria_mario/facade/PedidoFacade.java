@@ -15,20 +15,19 @@ public class PedidoFacade {
         this.pedidoService = pedidoService;
     }
 
-    public void salvarPedido(Pedido pedido) {
-        // Regras e validações do pedido aqui
-        pedidoService.salvar(pedido);
+    public Pedido salvarPedido(Pedido pedido) {
+        return pedidoService.salvar(pedido);
     }
 
     public List<Pedido> listarPedidos() {
         return pedidoService.listarTodos();
     }
 
-    public Pedido buscarPorId(Long id) {
+    public Pedido buscarPedidoPorId(String id) {
         return pedidoService.buscarPorId(id);
     }
 
-    public void deletarPedido(Long id) {
+    public void deletarPedido(String id) {
         pedidoService.deletar(id);
     }
 }

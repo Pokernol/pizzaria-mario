@@ -26,13 +26,13 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public Cliente buscarPorId(Long id) {
+    public Cliente buscarPorId(String id) {
         return clienteRepository.findById(id)
                 .orElseThrow(() -> new ClienteNotFoundException(id));
     }
 
     @Override
-    public void deletar(Long id) {
+    public void deletar(String id) {
         if (!clienteRepository.existsById(id)) {
             throw new ClienteNotFoundException(id);
         }

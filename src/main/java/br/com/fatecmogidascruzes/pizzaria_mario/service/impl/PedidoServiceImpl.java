@@ -1,6 +1,5 @@
 package br.com.fatecmogidascruzes.pizzaria_mario.service.impl;
 
-import br.com.fatecmogidascruzes.pizzaria_mario.exception.PedidoNotFoundException;
 import br.com.fatecmogidascruzes.pizzaria_mario.model.Pedido;
 import br.com.fatecmogidascruzes.pizzaria_mario.repository.PedidoRepository;
 import br.com.fatecmogidascruzes.pizzaria_mario.service.PedidoService;
@@ -26,17 +25,14 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
-    public Pedido buscarPorId(Long id) {
-        return pedidoRepository.findById(id)
-                .orElseThrow(() -> new PedidoNotFoundException(id));
+    public Pedido buscarPorId(String id) {
+        return pedidoRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deletar(Long id) {
-        if (!pedidoRepository.existsById(id)) {
-            throw new PedidoNotFoundException(id);
+    public void deletar(String id) {
+        if (pedidoRepository.existsById(id)) {
+            pedidoRepository.deleteById(id);
         }
-        pedidoRepository.deleteById(id);
     }
-
 }
